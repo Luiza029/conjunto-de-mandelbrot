@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include "funcoes.h"
+#include <time.h>
 
 int main(int argc, char const *argv[]){
     int n = 4;
@@ -39,6 +40,11 @@ int main(int argc, char const *argv[]){
         printf("Erro: Memoria nao alocada\n");
     }
 
+    struct timespec antes, depois;
+    double tempoDeExecucao;
+
+    clock_gettime(CLOCK_MONOTONIC, &antes);
+
     for(int linha = 0; linha < altura; linha++){
         for(int coluna = 0; coluna < largura; coluna++){
             interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
@@ -48,12 +54,19 @@ int main(int argc, char const *argv[]){
         }
     }
 
+    clock_gettime(CLOCK_MONOTONIC, &depois);
+    tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
+
+    FILE *time = fopen("times.txt", "w");
+    fprintf(time, "Tempo serial: %f \n", tempoDeExecucao);
+
     FILE *arq = fopen("mandelbrot_lcw_serial.pgm", "w");
 
     if(arq == NULL){
         fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
         return 1;
     }
+
 
     for(int linha = 0; linha < altura; linha++){
         for(int coluna = 0; coluna < largura; coluna++){
