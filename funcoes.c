@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "funcoes.h"
+#include <time.h>
 
 #define MIN_REAL -2.0
 #define MAX_REAL 1.0
@@ -42,4 +43,86 @@ int calculaInteracoes(int coluna, int linha, int largura, int altura, int max_in
     }
 
     return interacao;
+}
+
+void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer){
+    struct timespec antes, depois;
+    double tempoDeExecucao;
+    int interacoes, intensidade;
+
+    clock_gettime(CLOCK_MONOTONIC, &antes);
+
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
+            bufferCru[linha * largura + coluna] = interacoes;
+            intensidade = ((double) interacoes / max_interacoes) * 255;
+            buffer[linha * largura + coluna] = intensidade;
+        }
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &depois);
+    tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
+
+    FILE *time = fopen("times.txt", "a");
+    fprintf(time, "Tempo serial: %f \n", tempoDeExecucao);
+
+    FILE *arq = fopen("mandelbrot_lcw_serial.pgm", "w");
+
+    if(arq == NULL){
+        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
+        exit(1);
+    }
+
+
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            fprintf(arq, "%d ", buffer[linha * largura + coluna]);
+        }
+        fprintf(arq, "\n");
+    }
+
+    fclose(arq);
+}
+
+void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads){
+    struct timespec antes, depois;
+    double tempoDeExecucao;
+    int interacoes, intensidade;
+
+    clock_gettime(CLOCK_MONOTONIC, &antes);
+
+    #pragma omp parallel for num_threads(num_threads)
+
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
+            bufferCru[linha * largura + coluna] = interacoes;
+            intensidade = ((double) interacoes / max_interacoes) * 255;
+            buffer[linha * largura + coluna] = intensidade;
+        }
+    }
+
+    clock_gettime(CLOCK_MONOTONIC, &depois);
+    tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
+
+    FILE *time = fopen("times.txt", "a");
+    fprintf(time, "Tempo OpenMP: %f \n", tempoDeExecucao);
+
+    FILE *arq = fopen("mandelbrot_lcw_openmp.pgm", "w");
+
+    if(arq == NULL){
+        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
+        exit(1);
+    }
+
+
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            fprintf(arq, "%d ", buffer[linha * largura + coluna]);
+        }
+        fprintf(arq, "\n");
+    }
+
+    fclose(arq);
 }
