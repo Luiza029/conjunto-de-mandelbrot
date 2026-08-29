@@ -28,17 +28,41 @@ int main(int argc, char const *argv[]){
     buffer = malloc(qtdDeBytes);
 
     if(buffer == NULL){
-        printf("Erro: Memoria nao alocada");
+        printf("Erro: Memoria nao alocada\n");
     }
 
-    int interacoes;
+
+    int interacoes, intensidade;
+    int *bufferCru = malloc(sizeof(int) * numDePosicoes);
+
+    if(bufferCru == NULL){
+        printf("Erro: Memoria nao alocada\n");
+    }
 
     for(int linha = 0; linha < altura; linha++){
         for(int coluna = 0; coluna < largura; coluna++){
             interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
-            buffer[linha * largura + coluna] = interacoes;
+            bufferCru[linha * largura + coluna] = interacoes;
+            intensidade = ((double) interacoes / max_interacoes) * 255;
+            buffer[linha * largura + coluna] = intensidade;
         }
     }
+
+    FILE *arq = fopen("mandelbrot_lcw_serial.pgm", "w");
+
+    if(arq == NULL){
+        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
+        return 1;
+    }
+
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            fprintf(arq, "%d ", buffer[linha * largura + coluna]);
+        }
+        fprintf(arq, "\n");
+    }
+
+    fclose(arq);
 
     return 0;
 }

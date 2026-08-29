@@ -14,18 +14,21 @@ int validaArgumento(int argc,char const **argv, int vet[], int n){
     for(int i=0; i<n; i++){
         valor = strtol(argv[i+1], &endptr, 10); 
 
+        
         if(valor > 0 && *endptr == '\0') vet[i] = valor;
-
+        
         else{
             fprintf(stderr, "Erro: Argumento invalido, use apenas numeros\n");
             return 1;
         } 
     }
+
+    return 0;
 }
 
 int calculaInteracoes(int coluna, int linha, int largura, int altura, int max_interacoes){
-    double a_c = MIN_REAL + (coluna / (largura - 1)) * (MAX_REAL - MIN_REAL);
-    double b_c = MIN_IMAG + (linha / (altura - 1)) * (MAX_IMAG - MIN_IMAG);
+    double a_c = MIN_REAL + ((double) coluna / (largura - 1)) * (MAX_REAL - MIN_REAL);
+    double b_c = MIN_IMAG + ((double) linha / (altura - 1)) * (MAX_IMAG - MIN_IMAG);
 
     double a = 0.0, b = 0.0, A, B;
     int interacao = 0;

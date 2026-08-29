@@ -3,3 +3,108 @@ Script started on 2026-08-27 21:11:29-03:00 [TERM="xterm-256color" TTY="/dev/pts
 [?2004lexit
 
 Script done on 2026-08-27 21:11:31-03:00 [COMMAND_EXIT_CODE="0"]
+Script started on 2026-08-29 11:21:08-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="97" LINES="21"]
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ date
+[?2004lSat Aug 29 11:21:12 -03 2026
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ whoami
+[?2004lcwlui
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ pwd
+[?2004l/mnt/c/Users/cwlui/facul/lcw
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ pwdwhoami[2Pdategit commit -m "refactor: reorganiza funções em arquivos separados"[A]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [C[C[C[Cadd .[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Ccommit -m "refactor: reorganiza funções em arquivos separados"[A]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ date[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwhoami[2Pdategit commit -m "refactor: reorganiza funções em arquivos separados"[A]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [C[C[C[Cadd .[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pclear./mandelbrot 100 200 300 aaa400make[K./mandelbrot 100 200 300 400aaaclear[Kgit add .commit -m "refactor: reorganiza funções em arquivos separados"[A]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ date[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cwhoami[3Ppwd[K[7mcat mandelbrot_lcw_serial.pgm[27m
+[7mcat: mandelbrot_lcw_serial.pgm: No such file or directory[27m[Acat mandelbrot_lcw_serial.pgm
+[1Pcat: mandelbrot_lcw_serial.pgm: No such file or director[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[7m./mandelbrot 100 100 500 4[27m./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lmake: 'mandelbrot' is up to date.
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ ./mandelbrot 100 100 500 4[Kecho $?
+[?2004l1
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ echo $?./mandelbrot 100 100 500 4make[K./mandelbrot 100 100 500 4pwd[Kwhoami[2Pdategit commit -m "refactor: reorganiza funções em arquivos separados"[A]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [C[C[C[Cadd .[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[4Pclear./mandelbrot 100 200 300 aaa400make[K./mandelbrot 100 200 300 400
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ exit[K[K[K[Kexit
+[?2004lexit
+
+Script done on 2026-08-29 11:25:45-03:00 [COMMAND_EXIT_CODE="1"]
+Script started on 2026-08-29 11:29:07-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="97" LINES="21"]
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ data
+[?2004lCommand 'data' not found, did you mean:
+  command 'date' from deb coreutils-from-gnu (0.0.0~ubuntu25)
+  command 'date' from deb coreutils-from-uutils (0.0.0~ubuntu25)
+  command 'date' from deb coreutils-from-busybox (0.0.0~ubuntu25)
+  command 'date' from deb coreutils-from-toybox (0.0.0~ubuntu25)
+  command 'dat' from deb liballegro4-dev (2:4.4.3.1-7)
+Try: sudo apt install <deb name>
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ w[Kdate
+[?2004lSat Aug 29 11:29:13 -03 2026
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ whoami
+[?2004lcwlui
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ pwd
+[?2004l/mnt/c/Users/cwlui/facul/lcw
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c main.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make[1Ppwdwhoami[2Pdateaexit./mandelbrot 100 200 300 400echo $?[K./mandelbrot 100 200 300 400echo $?[K./mandelbrot 100 100 500 4make[K./mandelbrot 100 100 500 4make[K./mandelbrot 100 100 500 4make[K./mandelbrot 100 100 500 4
+[?2004lcheckpoint 1
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c main.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ ,[Kmake
+[?2004lgcc -c main.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c main.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c main.c
+gcc -c funcoes.c
+[01m[Kfuncoes.c:[m[K In function ‘[01m[KvalidaArgumento[m[K’:
+[01m[Kfuncoes.c:21:9:[m[K [01;31m[Kerror: [m[K‘[01m[Kelse[m[K’ without a previous ‘[01m[Kif[m[K’
+   21 |         [01;31m[Kelse[m[K{
+      |         [01;31m[K^~~~[m[K
+make: *** [makefile:8: funcoes.o] Error 1
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c funcoes.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004lcheckpoint 1
+checkpoint 1
+checkpoint 1
+checkpoint 1
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c funcoes.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ exit
+[?2004lexit
+
+Script done on 2026-08-29 11:36:34-03:00 [COMMAND_EXIT_CODE="1"]
+Script started on 2026-08-29 13:54:42-03:00 [TERM="xterm-256color" TTY="/dev/pts/4" COLUMNS="124" LINES="21"]
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ data[Ke
+[?2004lSat Aug 29 13:54:44 -03 2026
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ whoami
+[?2004lcwlui
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ pwd
+[?2004l/mnt/c/Users/cwlui/facul/lcw
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ clear
+[?2004l[H[2J[3J[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c funcoes.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ makeclear[2Ppwdwhoami[2Pdateexit./mandelbrot 100 100 500 4make[K./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make
+[?2004lgcc -c funcoes.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ male[K[Kke
+[?2004lgcc -c funcoes.c
+gcc main.o funcoes.o -o mandelbrot
+[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ make./mandelbrot 100 100 500 4
+[?2004l[?2004h]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ [K]0;cwlui@Luiza: /mnt/c/Users/cwlui/facul/lcw[01;32mcwlui@Luiza[00m:[01;34m/mnt/c/Users/cwlui/facul/lcw[00m$ exit
+[?2004lexit
+
+Script done on 2026-08-29 14:17:50-03:00 [COMMAND_EXIT_CODE="1"]
