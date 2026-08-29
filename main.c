@@ -16,5 +16,29 @@ int main(int argc, char const *argv[]){
         return 1;
     }
 
+    int largura = valorConvertido[0];
+    int altura = valorConvertido[1];
+    int max_interacoes = valorConvertido[2];
+    int num_threads = valorConvertido[3];
+
+    int numDePosicoes = largura * altura;
+    int bytes = sizeof(unsigned char);
+    int qtdDeBytes = numDePosicoes * bytes;
+    unsigned char *buffer;
+    buffer = malloc(qtdDeBytes);
+
+    if(buffer == NULL){
+        printf("Erro: Memoria nao alocada");
+    }
+
+    int interacoes;
+
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
+            buffer[linha * largura + coluna] = interacoes;
+        }
+    }
+
     return 0;
 }
