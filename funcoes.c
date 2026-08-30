@@ -45,7 +45,7 @@ int calculaInteracoes(int coluna, int linha, int largura, int altura, int max_in
     return interacao;
 }
 
-void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer){
+void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, FILE *time){
     struct timespec antes, depois;
     double tempoDeExecucao;
     int interacoes, intensidade;
@@ -64,7 +64,6 @@ void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, uns
     clock_gettime(CLOCK_MONOTONIC, &depois);
     tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
 
-    FILE *time = fopen("times.txt", "a");
     fprintf(time, "Tempo serial: %f \n", tempoDeExecucao);
 
     FILE *arq = fopen("mandelbrot_lcw_serial.pgm", "w");
@@ -81,11 +80,9 @@ void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, uns
         }
         fprintf(arq, "\n");
     }
-
-    fclose(arq);
 }
 
-void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads){
+void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads, FILE *time){
     struct timespec antes, depois;
     double tempoDeExecucao;
     int interacoes, intensidade;
@@ -106,7 +103,6 @@ void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, uns
     clock_gettime(CLOCK_MONOTONIC, &depois);
     tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
 
-    FILE *time = fopen("times.txt", "a");
     fprintf(time, "Tempo OpenMP: %f \n", tempoDeExecucao);
 
     FILE *arq = fopen("mandelbrot_lcw_openmp.pgm", "w");
@@ -123,6 +119,4 @@ void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, uns
         }
         fprintf(arq, "\n");
     }
-
-    fclose(arq);
 }

@@ -41,8 +41,11 @@ int main(int argc, char const *argv[]){
         printf("Erro: Memoria nao alocada\n");
     }
 
-    rodaSerial(largura, altura, max_interacoes, bufferCru, buffer);
-    rodaOpenMP(largura, altura, max_interacoes, bufferCru, buffer, num_threads);
+    FILE *time = fopen("times.txt", "w");
 
+    rodaSerial(largura, altura, max_interacoes, bufferCru, buffer, time);
+    rodaOpenMP(largura, altura, max_interacoes, bufferCru, buffer, num_threads, time);
+
+    fclose(time);
     return 0;
 }

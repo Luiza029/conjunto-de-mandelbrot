@@ -1,3 +1,2 @@
-Tempo serial: 0.006756 
-Tempo OpenMP: 0.003458 
- 
+Tempo serial: 0.049747 
+Tempo OpenMP: 0.025240 
