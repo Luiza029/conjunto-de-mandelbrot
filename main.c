@@ -18,11 +18,13 @@ int main(int argc, char const *argv[]){
         return 1;
     }
 
+    // Separação dos argumentos
     int largura = valorConvertido[0];
     int altura = valorConvertido[1];
     int max_interacoes = valorConvertido[2];
     int num_threads = valorConvertido[3];
 
+    // Alocacao de Buffer
     int numDePosicoes = largura * altura;
     int bytes = sizeof(unsigned char);
     int qtdDeBytes = numDePosicoes * bytes;
