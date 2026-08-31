@@ -17,7 +17,7 @@ void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, uns
 void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads, FILE *time);
 void rodaPthreads1(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads, FILE *time);
 void rodaPthreads2();
-void *tarefa(dadosThreads1 *dados);
+void *tarefa(void *dados);
 
 
 #endif
