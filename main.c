@@ -48,7 +48,10 @@ int main(int argc, char const *argv[]){
     rodaSerial(largura, altura, max_interacoes, bufferCru, buffer, time);
     rodaOpenMP(largura, altura, max_interacoes, bufferCru, buffer, num_threads, time);
     rodaPthreads1(largura, altura, max_interacoes, bufferCru, buffer, num_threads, time);
+    rodaPthreads2(largura, altura, max_interacoes, bufferCru, buffer, num_threads, time);
 
     fclose(time);
+    free(buffer);
+    free(bufferCru);
     return 0;
 }
