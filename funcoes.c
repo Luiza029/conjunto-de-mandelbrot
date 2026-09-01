@@ -29,8 +29,8 @@ int validaArgumento(int argc,char const **argv, int vet[], int n){
 }
 
 int calculaInteracoes(int coluna, int linha, int largura, int altura, int max_interacoes){
-    double a_c = MIN_REAL + ((double) coluna / (largura - 1)) * (MAX_REAL - MIN_REAL);
-    double b_c = MIN_IMAG + ((double) linha / (altura - 1)) * (MAX_IMAG - MIN_IMAG);
+    double a_c = MIN_REAL + (double) coluna / (largura) * (MAX_REAL - MIN_REAL);
+    double b_c = MIN_IMAG + (double) linha / (altura) * (MAX_IMAG - MIN_IMAG);
 
     double a = 0.0, b = 0.0, A, B;
     int interacao = 0;
@@ -87,13 +87,13 @@ void rodaSerial(int largura, int altura, int max_interacoes, int *bufferCru, uns
 void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads, FILE *time){
     struct timespec antes, depois;
     double tempoDeExecucao;
-    int interacoes, intensidade;
-
+    
     clock_gettime(CLOCK_MONOTONIC, &antes);
-
+    
     #pragma omp parallel for num_threads(num_threads)
-
+    
     for(int linha = 0; linha < altura; linha++){
+        int interacoes, intensidade;
         for(int coluna = 0; coluna < largura; coluna++){
 
             interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
@@ -154,6 +154,11 @@ void rodaPthreads1(int largura, int altura, int max_interacoes, int *bufferCru, 
 
         vetThread[i].linhaInicial = linhaPorThreads * i;
         vetThread[i].linhaFinal = linhaPorThreads * (i + 1) - 1;
+
+        if(i == num_threads-1){
+            vetThread[i].linhaFinal = altura - 1;
+        }
+
         vetThread[i].altura = altura;
         vetThread[i].largura = largura;
         vetThread[i].buffer = buffer;
