@@ -10,7 +10,7 @@ int main(int argc, char const *argv[]){
     int valorConvertido[n], valor;
 
     if(argc != 5){
-        printf("USO: ./mandelbrot [largura] [altura] [max_iteracoes] [num_threads]\n");
+        fprintf(stderr ,"USO: ./mandelbrot [largura] [altura] [max_iteracoes] [num_threads]\n");
         return 1;
     } 
     
@@ -32,7 +32,8 @@ int main(int argc, char const *argv[]){
     buffer = malloc(qtdDeBytes);
 
     if(buffer == NULL){
-        printf("Erro: Memoria nao alocada\n");
+        fprintf(stderr, "Erro: Memoria nao alocada\n");
+        return 1;
     }
 
 
@@ -40,10 +41,16 @@ int main(int argc, char const *argv[]){
     int *bufferCru = malloc(sizeof(int) * numDePosicoes);
 
     if(bufferCru == NULL){
-        printf("Erro: Memoria nao alocada\n");
+        fprintf(stderr, "Erro: Memoria nao alocada\n");
+        return 1;
     }
 
     FILE *time = fopen("times.txt", "w");
+
+    if(time == NULL){
+        fprintf(time, "Erro ao abrir arquivo de time\n");
+        return 1;
+    }
 
     rodaSerial(largura, altura, max_interacoes, bufferCru, buffer, time);
     rodaOpenMP(largura, altura, max_interacoes, bufferCru, buffer, num_threads, time);

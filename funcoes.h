@@ -12,13 +12,11 @@ typedef struct dadosThreads1{
 }dadosThreads1;
 
 typedef struct dadosThreads2{
-    int linhaInicial;
-    int largura;
-    int altura;
+    int indiceInicial;
+    int indiceFinal;
     int maxInteracao;
     int *bufferCru;
     unsigned char *buffer;
-    int numThread;
 }dadosThreads2;
 
 int validaArgumento(int argc, char const *argv[], int vet[], int n);
@@ -28,7 +26,7 @@ void rodaOpenMP(int largura, int altura, int max_interacoes, int *bufferCru, uns
 void rodaPthreads1(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads, FILE *time);
 void rodaPthreads2(int largura, int altura, int max_interacoes, int *bufferCru, unsigned char *buffer, int num_threads, FILE *time);
 void *tarefa(void *dados);
-void *tarefa2(void *dados);
+void *normaliza(void *dados);
 
 
 #endif

@@ -146,6 +146,13 @@ void rodaPthreads1(int largura, int altura, int max_interacoes, int *bufferCru, 
     pthread_t thread[num_threads];
     dadosThreads1 vetThread[num_threads];
 
+    FILE *arq = fopen("mandelbrot_lcw_pthreads1.pgm", "w");
+
+    if(arq == NULL){
+        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
+        exit(1);
+    }
+
     int linhaPorThreads = altura / num_threads;
 
     clock_gettime(CLOCK_MONOTONIC, &antes);
@@ -165,23 +172,21 @@ void rodaPthreads1(int largura, int altura, int max_interacoes, int *bufferCru, 
         vetThread[i].bufferCru = bufferCru;
         vetThread[i].maxInteracao = max_interacoes;
         
-        pthread_create(&thread[i], NULL, tarefa, &vetThread[i]);
+        if(pthread_create(&thread[i], NULL, tarefa, &vetThread[i]) != 0){
+            fprintf(stderr, "Erro ao criar Threads\n");
+            exit(1);
+        }
+        
     }
 
     for(int i=0; i<num_threads; i++){
         pthread_join(thread[i], NULL);
     }
-
+    
     clock_gettime(CLOCK_MONOTONIC, &depois);
     tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
-
+    
     fprintf(time, "Tempo Pthreads1: %f \n", tempoDeExecucao);
-    FILE *arq = fopen("mandelbrot_lcw_pthreads1.pgm", "w");
-
-    if(arq == NULL){
-        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
-        exit(1);
-    }
 
     for(int linha = 0; linha < altura; linha++){
         for(int coluna = 0; coluna < largura; coluna++){
@@ -193,19 +198,15 @@ void rodaPthreads1(int largura, int altura, int max_interacoes, int *bufferCru, 
     fclose(arq);
 }
 
-void *tarefa2(void *argc){
+void *normaliza(void *argc){
     dadosThreads2 dados = *(dadosThreads2*) argc;
-    int interacoes, intensidade;
+    int intensidade;
     
-    for(int linha = dados.linhaInicial; linha < dados.altura; linha += dados.numThread){
-        for(int coluna = 0; coluna<dados.largura; coluna++){
-
-            interacoes = calculaInteracoes(coluna, linha, dados.largura, dados.altura, dados.maxInteracao);
-            dados.bufferCru[linha * dados.largura + coluna] = interacoes;
-            intensidade = ((double) interacoes / dados.maxInteracao) * 255;
-            dados.buffer[linha * dados.largura + coluna] = intensidade;
-        }
+    for(int i = dados.indiceInicial; i<= dados.indiceFinal; i++){
+        intensidade = ((double) dados.bufferCru[i] / dados.maxInteracao) * 255;
+        dados.buffer[i] = intensidade;
     }
+
     return NULL;
 }
 
@@ -214,20 +215,43 @@ void rodaPthreads2(int largura, int altura, int max_interacoes, int *bufferCru, 
     double tempoDeExecucao;
     pthread_t thread[num_threads];
     dadosThreads2 vetThread[num_threads];
+    int interacoes;
+
+    FILE *arq = fopen("mandelbrot_lcw_pthreads2.pgm", "w");
+
+    if(arq == NULL){
+        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
+        exit(1);
+    }
 
     clock_gettime(CLOCK_MONOTONIC, &antes);
 
-    for(int i=0; i<num_threads; i++){
+    for(int linha = 0; linha < altura; linha++){
+        for(int coluna = 0; coluna < largura; coluna++){
+            interacoes = calculaInteracoes(coluna, linha, largura, altura, max_interacoes);
+            bufferCru[linha * largura + coluna] = interacoes;
+        }
+    }
 
-        vetThread[i].linhaInicial = i;
-        vetThread[i].numThread = num_threads;
-        vetThread[i].altura = altura;
-        vetThread[i].largura = largura;
-        vetThread[i].buffer = buffer;
-        vetThread[i].bufferCru = bufferCru;
+    int totalPixels = largura * altura;
+    int pixelPorThreads = totalPixels / num_threads;
+
+    for(int i=0; i<num_threads; i++){
+        vetThread[i].indiceInicial = pixelPorThreads * i;
+        vetThread[i].indiceFinal = pixelPorThreads * (i + 1) - 1;
+
+        if(i == num_threads - 1){
+            vetThread[i].indiceFinal = totalPixels - 1;
+        }
+
         vetThread[i].maxInteracao = max_interacoes;
-        
-        pthread_create(&thread[i], NULL, tarefa2, &vetThread[i]);
+        vetThread[i].bufferCru = bufferCru;
+        vetThread[i].buffer = buffer;
+
+        if(pthread_create(&thread[i], NULL, normaliza, &vetThread[i]) != 0){
+            fprintf(stderr, "Errp ao criar Threads\n");
+            exit(1);
+        }
     }
 
     for(int i=0; i<num_threads; i++){
@@ -238,12 +262,6 @@ void rodaPthreads2(int largura, int altura, int max_interacoes, int *bufferCru, 
     tempoDeExecucao = (depois.tv_sec - antes.tv_sec) + (depois.tv_nsec - antes.tv_nsec) / 1000000000.0;
 
     fprintf(time, "Tempo Pthreads2: %f \n", tempoDeExecucao);
-    FILE *arq = fopen("mandelbrot_lcw_pthreads2.pgm", "w");
-
-    if(arq == NULL){
-        fprintf(stderr, "Erro: Nao foi possivel abrir o arquivo\n");
-        exit(1);
-    }
 
     for(int linha = 0; linha < altura; linha++){
         for(int coluna = 0; coluna < largura; coluna++){
